@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+  --primary: #24324b; /* Deep bluish panel color */
+  --accent: #f27f3d; /* Warm orange accent */
+  --white: #ffffff;
+  --gray: #dcdcdc;
+  --input-bg: #f0dfcf; /* Soft beige input background */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background: url('backgrounds/2.png') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Dog image floating on right */
+body::after {
+  content: "";
+  position: absolute;
+  right: 40px;
+  bottom: 0;
+  width: 420px;
+  height: 420px;
+  background: url('backgrounds/4.png') no-repeat center bottom;
+  background-size: contain;
+  pointer-events: none;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  color: var(--white);
+  z-index: 2;
+  position: relative;
+  left: -100px; /* shifts slightly left to give room for dog image */
+}
+
+.brand h1 {
+  font-size: 2rem;
+  color: var(--white);
+  margin-bottom: 2rem;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+/* LOGIN BOX STYLE */
+.login-box {
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 25px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  text-align: left;
+}
+
+.panel-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.error {
+  background: #ffdddd;
+  color: #c00;
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--white);
+}
+
+input {
+  padding: 0.9rem 1rem;
+  border: none;
+  border-radius: 25px;
+  outline: none;
+  font-size: 0.95rem;
+  background-color: var(--input-bg);
+  color: #5c4033;
+}
+
+input::placeholder {
+  color: #c2743c;
+  opacity: 0.9;
+}
+
+input:focus {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+/* BUTTON */
+.btn {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+  padding: 0.8rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--white);
+  color: var(--primary);
+}
+
+.back-link {
+  display: block;
+  margin-top: 1.2rem;
+  text-align: center;
+  color: var(--white);
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body::after {
+    width: 220px;
+    height: 220px;
+    right: 10px;
+  }
+
+  .hero {
+    left: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .brand h1 {
+    font-size: 1.5rem;
+  }
+
+  .login-box {
+    max-width: 320px;
+    padding: 1.5rem;
+  }
+}
