@@ -6,8 +6,8 @@ if (isset($_POST['username'])) {
     $u = $_POST['username'];
     $p = $_POST['password'];
     // hardcoded credentials (change)
-    $ADMIN_USER = 'admin';
-    $ADMIN_PASS = '12345';
+    $ADMIN_USER = 'PawfectMatchAdmin';
+    $ADMIN_PASS = 'Admin12345';
     if ($u === $ADMIN_USER && $p === $ADMIN_PASS) {
         $_SESSION['is_admin'] = true;
         header('Location: admin.php');

@@ -72,6 +72,7 @@ $cats = ['Dog'=>'animals/dog.jpg','Cat'=>'animals/cat.jpg','Hamster'=>'animals/h
 <body>
   <div>
   <a href="guest.php"><button type="button">Home</button></a>
+  <a href="aboutUs.php"><button type="button">About us</button></a>
   <a href="index.php"><button type="button">Profile (Login)</button></a>
     <form method="get" action="category.php" style="display:inline">
       <label for="search_cat">Search:</label>

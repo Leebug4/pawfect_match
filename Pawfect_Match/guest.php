@@ -1,11 +1,16 @@
 <?php
 // guest.php - Guest dashboard with text search and image buttons (no CSS)
+session_start();
 ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(E_ALL);
 
 require_once 'db.php';
 
+if (empty($_SESSION['is_guest'])) {
+    header('Location: guestLogin.php');
+    exit;
+}
 // valid categories list
 $valid_types = ['Dog', 'Cat', 'Hamster', 'Rabbit'];
 
@@ -43,10 +48,12 @@ $cats = [
 </head>
 <body>
 
-<!-- Header: Home | Adopt | Profile | Search -->
+<!-- Header: Home | About Us | Profile | Search -->
 <div>
   <a href="guest.php"><button type="button">Home</button></a>
+  <a href="aboutUs.php"><button type="button">About us</button></a>
   <a href="index.php"><button type="button">Profile (Login)</button></a>
+  <a href="logout.php"><button type="button">Logout</button></a>
 
   <!-- Text search -->
   <form method="get" action="" style="display:inline; margin-left:20px;">
