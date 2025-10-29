@@ -96,9 +96,12 @@ $imagePath = resolve_pet_image($pet['id']);
         <li>Take your pet home and care for them responsibly.</li>
       </ul>
 
-      <h4>Adopter Profile (Sample)</h4>
-      <p><strong>Timothy Smith</strong></p>
-      <p>This account has been verified as an adopter in the Pawfect Match community.</p>
+ <!-- Profile Section -->
+  <h3>Adopter Profile</h3>
+  <p><b>Name:</b> Timothy Smith</p>
+  <p>This account has been verified as an adopter in the Pawfect Match Pet Adoption Community.</p>
+  <p>He/She has met all necessary requirements and is officially certified.</p>
+  <img src="DevsImages/Samson_AboutUs.png" width="200" alt="Timothy Smith">
 
       <h4>When you are ready</h4>
       <form method="post" action="adopt.php">
