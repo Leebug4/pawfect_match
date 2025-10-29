@@ -70,67 +70,85 @@ $cats = ['Dog'=>'animals/dog.jpg','Cat'=>'animals/cat.jpg','Hamster'=>'animals/h
 <html>
 <head><meta charset="utf-8"><title>Dogs - Pawfect Match</title></head>
 <body>
-  <div>
+<div>
   <a href="guest.php"><button type="button">Home</button></a>
+  <a href="adopt.php"><button type="button">Adopt</button></a>
+  <a href="donation.php"><button type="button">Donation</button></a>
   <a href="aboutUs.php"><button type="button">About us</button></a>
-  <a href="index.php"><button type="button">Profile (Login)</button></a>
-    <form method="get" action="category.php" style="display:inline">
-      <label for="search_cat">Search:</label>
-      <select name="species" id="search_cat">
-        <option value="">--Select category--</option>
-        <?php foreach ($cats as $k => $v): ?>
-          <option value="<?php echo esc($k); ?>"><?php echo esc($k); ?></option>
-        <?php endforeach; ?>
-      </select>
-      <button type="submit">Go</button>
-    </form>
+  <a href="profile.php"><button type="button">Profile</button></a>
+  <a href="logout.php"><button type="button">Logout</button></a>
+  
+  <!-- Text search -->
+  <form method="get" action="" style="display:inline; margin-left:20px;">
+    <label for="search">Search:</label>
+    <input type="text" id="search" name="search" placeholder="Type Dog, Cat, etc.">
+    <button type="submit">Go</button>
+  </form>
   </div>
 
   <hr>
-  <h1>All Dogs</h1>
+<h1>All Dogs</h1>
 
-  <?php if ($shown_msg !== ''): ?>
-    <div id="toast" style="position:fixed;top:16px;right:16px;background:#222;color:#fff;padding:10px;border-radius:8px;">
-      <?php echo esc($shown_msg); ?> <button onclick="document.getElementById('toast').style.display='none'">OK</button>
-    </div>
-  <?php endif; ?>
+<?php if ($shown_msg !== ''): ?>
+  <div id="toast" style="position:fixed;top:16px;right:16px;background:#222;color:#fff;padding:10px;border-radius:8px;">
+    <?php echo esc($shown_msg); ?> 
+    <button onclick="document.getElementById('toast').style.display='none'">OK</button>
+  </div>
+<?php endif; ?>
 
-  <?php if ($result && $result->num_rows > 0): ?>
-    <table border="1" cellpadding="6" cellspacing="0">
-      <tr><th>ID</th><th>Photo</th><th>Name</th><th>Breed</th><th>Gender</th><th>Age</th><th>Description</th><th>Status</th><th>Action</th></tr>
-      <?php while ($row = $result->fetch_assoc()): ?>
-        <tr>
-          <td><?php echo esc($row['id']); ?></td>
-          <td>
-            <?php
-              $fname = get_first_image($conn, $row['id']);
-              $img = find_image_path($fname);
-              echo $img ? '<img src="'.esc($img).'" width="100" alt="">' : 'No photo';
-            ?>
-          </td>
-          <td><?php echo esc($row['name']); ?></td>
-          <td><?php echo esc($row['breed']); ?></td>
-          <td><?php echo esc($row['gender']); ?></td>
-          <td><?php echo esc($row['age']); ?> yrs</td>
-          <td><?php echo nl2br(esc($row['description'])); ?></td>
-          <td><?php echo esc($row['status']); ?></td>
-          <td>
-            <?php if ($row['status'] === 'Available'): ?>
-              <form method="post" onsubmit="return confirm('Adopt <?php echo esc(addslashes($row['name'])); ?>?');">
-                <input type="hidden" name="adopt_id" value="<?php echo esc($row['id']); ?>">
-                <button type="submit">Adopt</button>
-              </form>
-            <?php else: ?>
-              <button disabled>Already Adopted</button>
-            <?php endif; ?>
-          </td>
-        </tr>
-      <?php endwhile; ?>
-    </table>
-  <?php else: ?>
-    <p>No dogs found.</p>
-  <?php endif; ?>
+<?php if ($result && $result->num_rows > 0): ?>
+  <table border="1" cellpadding="6" cellspacing="0">
+    <tr>
+      <th>ID</th>
+      <th>Photo</th>
+      <th>Name</th>
+      <th>Breed</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
 
-  <p> <a href="guest.php"><button>Back to Category</button></a></p>
-</body>
+    <?php while ($row = $result->fetch_assoc()): ?>
+      <tr>
+        <td><?php echo esc($row['id']); ?></td>
+        <td>
+          <?php
+            $fname = get_first_image($conn, $row['id']);
+            $img = find_image_path($fname);
+            echo $img ? '<img src="'.esc($img).'" width="100" alt="">' : 'No photo';
+          ?>
+        </td>
+        <td><?php echo esc($row['name']); ?></td>
+        <td><?php echo esc($row['breed']); ?></td>
+        <td><?php echo esc($row['gender']); ?></td>
+        <td><?php echo esc($row['age']); ?> yrs</td>
+        <td><?php echo nl2br(esc($row['description'])); ?></td>
+        <td><?php echo esc($row['status']); ?></td>
+        <td>
+          <?php if (strtolower($row['status']) === 'available'): ?>
+            <form action="adopted.php" method="GET">
+              <input type="hidden" name="id" value="<?php echo esc($row['id']); ?>">
+              <input type="hidden" name="name" value="<?php echo esc($row['name']); ?>">
+              <input type="hidden" name="age" value="<?php echo esc($row['age']); ?>">
+              <input type="hidden" name="breed" value="<?php echo esc($row['breed']); ?>">
+              <input type="hidden" name="gender" value="<?php echo esc($row['gender']); ?>">
+              <input type="hidden" name="description" value="<?php echo esc($row['description']); ?>">
+              <input type="hidden" name="image" value="<?php echo esc($img); ?>">
+              <button type="submit">Adopt</button>
+            </form>
+          <?php else: ?>
+            <button disabled>Already Adopted</button>
+          <?php endif; ?>
+        </td>
+      </tr>
+    <?php endwhile; ?>
+  </table>
+<?php else: ?>
+  <p>No dogs found.</p>
+<?php endif; ?>
+
+<p><a href="guest.php"><button>Back to Category</button></a></p>
+</body> 
 </html>

@@ -51,8 +51,10 @@ $cats = [
 <!-- Header: Home | About Us | Profile | Search -->
 <div>
   <a href="guest.php"><button type="button">Home</button></a>
+  <a href="adopt.php"><button type="button">Adopt</button></a>
+  <a href="donation.php"><button type="button">Donation</button></a>
   <a href="aboutUs.php"><button type="button">About us</button></a>
-  <a href="index.php"><button type="button">Profile (Login)</button></a>
+  <a href="profile.php"><button type="button">Profile</button></a>
   <a href="logout.php"><button type="button">Logout</button></a>
 
   <!-- Text search -->
