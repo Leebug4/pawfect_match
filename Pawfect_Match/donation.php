@@ -48,7 +48,7 @@
     <p><b>Amount:</b></p>
     <input type="text" name="amount" placeholder="₱"><br><br>
 
-    <button type="submit">Donate Now</button>
+    <button type="button" onclick="alert('purr-nated successfully!')">Donation</button>
   </form>
 
   <hr>
