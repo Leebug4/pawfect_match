@@ -47,6 +47,7 @@ function get_pet_images($conn, $pet_id) {
   <p>
     <a href="index.php"><button type="button">Home</button></a>
     <a href="add_pet.php"><button type="button">+ Add New Pet</button></a>
+    <a href="adminprofile.php"><button type="button">Profile</button></a>    
     <a href="logout.php"><button type="button">Logout</button></a>
   </p>
 

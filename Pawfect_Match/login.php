@@ -12,7 +12,7 @@ if (isset($_POST['username'])) {
 
     if ($u === $ADMIN_USER && $p === $ADMIN_PASS) {
         $_SESSION['is_admin'] = true;
-        header('Location: admin.php');
+        header('Location: adminprofile.php');
         exit;
     } else {
         $err = 'Invalid credentials';
