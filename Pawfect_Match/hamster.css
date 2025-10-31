@@ -1,0 +1,22 @@
+/* ===== HAMSTER PAGE CSS ===== */
+
+.hero {
+  background-image: url('../images/backgrounds/hamster-bg.jpg');
+}
+
+section.hamster-info {
+  background-color: rgba(255, 250, 230, 0.8);
+}
+
+.hamster-gallery img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.hamster-gallery img:hover {
+  transform: scale(1.08);
+}

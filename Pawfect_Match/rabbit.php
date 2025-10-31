@@ -61,23 +61,27 @@ $cats = ['Dog'=>'animals/dog.jpg','Cat'=>'animals/cat.jpg','Hamster'=>'animals/h
 ?>
 <!doctype html>
 <html>
-<head><meta charset="utf-8"><title>Rabbits - Pawfect Match</title></head>
+<head><meta charset="utf-8"><title>Rabbits - Pawfect Match</title>
+<link rel="stylesheet" href="generalAdoption.css">
+<link rel="stylesheet" href="rabbit.css">
+</head>
 <body>
-<div>
-  <a href="guest.php"><button type="button">Home</button></a>
-  <a href="adopt.php"><button type="button">Adopt</button></a>
-  <a href="donation.php"><button type="button">Donation</button></a>
-  <a href="aboutUs.php"><button type="button">About us</button></a>
-  <a href="profile.php"><button type="button">Profile</button></a>
-  <a href="logout.php"><button type="button">Logout</button></a>
-  
-  <!-- Text search -->
-  <form method="get" action="" style="display:inline; margin-left:20px;">
-    <label for="search">Search:</label>
-    <input type="text" id="search" name="search" placeholder="Type Dog, Cat, etc.">
-    <button type="submit">Go</button>
-  </form>
+<div class="header">
+  <div class="logo">
+    <img src="logo/LOGO.png" alt="Pawfect Match Logo">
   </div>
+  <div class="nav-links">
+    <a href="guest.php" class="active">Home</a>
+    <a href="adopt.php">Adopt</a>
+    <a href="donation.php">Donation</a>
+    <a href="aboutUs.php">About Us</a>
+    <a href="profile.php">Profile</a>
+  </div>
+  <form method="get" action="" class="search-bar">
+    <input type="text" id="search" name="search" placeholder="Search pets...">
+    <button type="submit">🔍</button>
+  </form>
+</div>
 
   <hr>
   <h1>All Rabbits</h1>

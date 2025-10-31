@@ -1,0 +1,22 @@
+/* ===== RABBIT PAGE CSS ===== */
+
+.hero {
+  background-image: url('../images/backgrounds/rabbit-bg.jpg');
+}
+
+section.rabbit-info {
+  background-color: rgba(235, 255, 240, 0.8);
+}
+
+.rabbit-gallery img {
+  width: 200px;
+  height: 200px;
+  border-radius: 18px;
+  object-fit: cover;
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.rabbit-gallery img:hover {
+  transform: scale(1.07);
+}

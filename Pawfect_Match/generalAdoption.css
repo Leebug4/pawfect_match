@@ -1,0 +1,153 @@
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== BODY LAYOUT ===== */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d0c6a1;
+  min-height: 100vh;
+  /* remove padding-top so navbar sticks to the top */
+}
+
+/* ===== NAVBAR ===== */
+.header {
+  width: 100%;
+  position: fixed; /* make it stay on top even when scrolling */
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 40px;
+  z-index: 100;
+}
+
+/* Add margin to page content to avoid overlapping navbar */
+main, h1, table {
+  margin-top: 100px;
+}
+
+
+.logo img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: orange;
+}
+
+/* ===== SEARCH BAR ===== */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 20px;
+  padding: 3px 8px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #555;
+  font-weight: bold;
+}
+
+/* ===== PAGE TITLE ===== */
+h1 {
+  color: white;
+  text-align: center;
+  margin: 40px 0 20px 0;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+
+/* ===== PET TABLE ===== */
+table {
+  width: 90%;
+  border-collapse: collapse;
+  margin-bottom: 60px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th {
+  background-color: #603a27;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+/* Alternating shades */
+tr:nth-child(even) {
+  background-color: #f4eee1;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* Buttons */
+button {
+  background-color: #e38c4c;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-weight: 700;
+  color: #603a27;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #d3742a;
+  color: white;
+}
+
+/* Toast message */
+#toast {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: #222;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 999;
+}

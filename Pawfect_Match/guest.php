@@ -1,5 +1,4 @@
 <?php
-// guest.php - Guest dashboard with text search and image buttons (no CSS)
 session_start();
 ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
@@ -11,13 +10,10 @@ if (empty($_SESSION['is_guest'])) {
     header('Location: guestLogin.php');
     exit;
 }
-// valid categories list
-$valid_types = ['Dog', 'Cat', 'Hamster', 'Rabbit'];
 
-// simple sanitize helper
+$valid_types = ['Dog', 'Cat', 'Hamster', 'Rabbit'];
 function esc($s){ return htmlspecialchars($s, ENT_QUOTES); }
 
-// check search input
 $search_msg = '';
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['search'])) {
     $search = trim($_GET['search']);
@@ -26,42 +22,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['search'])) {
     } elseif (!in_array(ucfirst(strtolower($search)), $valid_types)) {
         $search_msg = "Invalid input — no pets shown.";
     } else {
-        // valid input: redirect to category page
         header("Location: category.php?type=" . ucfirst(strtolower($search)));
         exit;
     }
 }
 
-// categories and images
 $cats = [
-    'Dog' => 'animals/dog.jpg',
-    'Cat' => 'animals/cat.jpg',
-    'Hamster' => 'animals/hamster.jpg',
-    'Rabbit' => 'animals/rabbit.jpg'
+    'Dog' => 'backgrounds/DOG.png',       // TODO: Replace with your dog image path
+    'Cat' => 'backgrounds/CAT.png',       // TODO: Replace with your cat image path
+    'Rabbit' => 'backgrounds/RABBIT.png', // TODO: Replace with your rabbit image path
+    'Hamster' => 'backgrounds/HAMSTER.png'// TODO: Replace with your hamster image path
 ];
 ?>
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Pawfect Match — Guest</title>
+<meta charset="utf-8">
+<title>Pawfect Match — Guest</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="guest.css">
 </head>
 <body>
 
-<!-- Header: Home | About Us | Profile | Search -->
-<div>
-  <a href="guest.php"><button type="button">Home</button></a>
-  <a href="adopt.php"><button type="button">Adopt</button></a>
-  <a href="donation.php"><button type="button">Donation</button></a>
-  <a href="aboutUs.php"><button type="button">About us</button></a>
-  <a href="profile.php"><button type="button">Profile</button></a>
-  <a href="logout.php"><button type="button">Logout</button></a>
+<div class="hero"></div>
 
-  <!-- Text search -->
-  <form method="get" action="" style="display:inline; margin-left:20px;">
-    <label for="search">Search:</label>
-    <input type="text" id="search" name="search" placeholder="Type Dog, Cat, etc.">
-    <button type="submit">Go</button>
+<div class="header">
+  <div class="logo">
+    <img src="logo/LOGO.png" alt="Pawfect Match Logo">
+  </div>
+  <div class="nav-links">
+    <a href="guest.php" class="active">Home</a>
+    <a href="adopt.php">Adopt</a>
+    <a href="donation.php">Donation</a>
+    <a href="aboutUs.php">About Us</a>
+    <a href="profile.php">Profile</a>
+  </div>
+  <form method="get" action="" class="search-bar">
+    <input type="text" id="search" name="search" placeholder="Search pets...">
+    <button type="submit">🔍</button>
   </form>
 </div>
 
@@ -69,30 +67,30 @@ $cats = [
   <p style="color:red;"><?php echo esc($search_msg); ?></p>
 <?php endif; ?>
 
-<hr>
+<div class="category-container">
+  <?php foreach ($cats as $type => $img): ?>
+    <div class="category-card">
+      <?php if (file_exists(__DIR__ . '/' . $img)): ?>
+        <img src="<?php echo esc($img); ?>" alt="<?php echo esc($type); ?>">
+      <?php else: ?>
+        <div style="width:100px;height:100px;border-radius:50%;background:#ccc;display:flex;align-items:center;justify-content:center;margin:0 auto 5px auto;">
+          <span><?php echo esc($type); ?></span>
+        </div>
+      <?php endif; ?>
+      <button onclick="window.location.href='<?php echo strtolower($type); ?>.php'"><?php echo esc($type); ?>s</button>
+    </div>
+  <?php endforeach; ?>
+</div>
 
-<h2>Choose a category</h2>
+<div class="banner">
+  <a href="donation.php">
+    <img src="backgrounds/Banner.png" alt="Donate to Help Pets">
+  </a>
+</div>
 
-<!-- Image buttons for categories (links to specific pages) -->
-<table border="0" cellpadding="8" cellspacing="8">
-  <tr>
-    <?php foreach ($cats as $type => $img): ?>
-      <td align="center" valign="top">
-        <a href="<?php echo strtolower($type); ?>.php" style="text-decoration:none;">
-          <?php if (file_exists(__DIR__ . '/' . $img)): ?>
-            <img src="<?php echo esc($img); ?>" alt="<?php echo esc($type); ?>" width="160" height="120"><br>
-          <?php else: ?>
-            <div style="width:160px;height:120px;border:1px solid #000;display:inline-block;line-height:120px;">
-              <?php echo esc($type); ?> Image
-            </div><br>
-          <?php endif; ?>
-          <button type="button"><?php echo esc($type); ?></button>
-        </a>
-      </td>
-    <?php endforeach; ?>
-  </tr>
-</table>
+<div class="back-btn">
+  <a href="index.php"><button>Back to Login Page</button></a>
+</div>
 
-   <p> <a href="index.php"><button>Back to Login Page</button></a></p>
 </body>
 </html>
