@@ -8,7 +8,7 @@
 
 <!-- Header: Home | About Us | Profile | Search -->
 <div>
-  <a href="guest.php"><button type="button">Home</button></a>
+  <button onclick="history.back()">Back to Previous Tab</button>
   <a href="aboutUs.php"><button type="button">About us</button></a>
   <hr>
 <div class="about-page">
@@ -87,7 +87,5 @@
 
     </div>
 </div>
-
-<p> <a href="guest.php"><button>Back to home</button></a></p>
 </body>
 </html>
