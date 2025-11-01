@@ -14,24 +14,11 @@ if (empty($_SESSION['is_guest'])) {
 $valid_types = ['Dog', 'Cat', 'Hamster', 'Rabbit'];
 function esc($s){ return htmlspecialchars($s, ENT_QUOTES); }
 
-$search_msg = '';
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['search'])) {
-    $search = trim($_GET['search']);
-    if ($search === '') {
-        $search_msg = "Please enter a pet type.";
-    } elseif (!in_array(ucfirst(strtolower($search)), $valid_types)) {
-        $search_msg = "Invalid input — no pets shown.";
-    } else {
-        header("Location: category.php?type=" . ucfirst(strtolower($search)));
-        exit;
-    }
-}
-
 $cats = [
-    'Dog' => 'backgrounds/DOG.png',       // TODO: Replace with your dog image path
-    'Cat' => 'backgrounds/CAT.png',       // TODO: Replace with your cat image path
-    'Rabbit' => 'backgrounds/RABBIT.png', // TODO: Replace with your rabbit image path
-    'Hamster' => 'backgrounds/HAMSTER.png'// TODO: Replace with your hamster image path
+    'Dog' => 'backgrounds/DOG.png',
+    'Cat' => 'backgrounds/CAT.png',
+    'Rabbit' => 'backgrounds/RABBIT.png',
+    'Hamster' => 'backgrounds/HAMSTER.png'
 ];
 ?>
 <!doctype html>
@@ -44,28 +31,22 @@ $cats = [
 </head>
 <body>
 
-<div class="hero"></div>
-
-<div class="header">
-  <div class="logo">
-    <img src="logo/LOGO.png" alt="Pawfect Match Logo">
+<header>
+  <div class="header-container">
+    <img src="backgrounds/logo.png" alt="Pawfect Match Logo" class="header-logo">
+    <nav>
+      <div class="nav-links">
+        <a href="guest.php">Home</a>
+        <a href="adopt.php">Adopt</a>
+        <a href="donation.php">Donation</a>
+        <a href="aboutUs.php">About Us</a>
+      </div>
+      <a href="profile.php" class="active">
+        <button class="profile-btn">Profile</button>
+      </a>
+    </nav>
   </div>
-  <div class="nav-links">
-    <a href="guest.php" class="active">Home</a>
-    <a href="adopt.php">Adopt</a>
-    <a href="donation.php">Donation</a>
-    <a href="aboutUs.php">About Us</a>
-    <a href="profile.php">Profile</a>
-  </div>
-  <form method="get" action="" class="search-bar">
-    <input type="text" id="search" name="search" placeholder="Search pets...">
-    <button type="submit">🔍</button>
-  </form>
-</div>
-
-<?php if ($search_msg): ?>
-  <p style="color:red;"><?php echo esc($search_msg); ?></p>
-<?php endif; ?>
+</header>
 
 <div class="category-container">
   <?php foreach ($cats as $type => $img): ?>
@@ -77,20 +58,15 @@ $cats = [
           <span><?php echo esc($type); ?></span>
         </div>
       <?php endif; ?>
-      <button onclick="window.location.href='<?php echo strtolower($type); ?>.php'"><?php echo esc($type); ?>s</button>
-    </div>
-  <?php endforeach; ?>
-</div>
+      <button onclick="window.location.href='<?php echo strtolower($type); ?>.php'"><?php echo esc($type); ?>s</button> 
+    </div> 
+  <?php endforeach; ?> 
+</div> 
 
 <div class="banner">
   <a href="donation.php">
     <img src="backgrounds/Banner.png" alt="Donate to Help Pets">
   </a>
 </div>
-
-<div class="back-btn">
-  <a href="index.php"><button>Back to Login Page</button></a>
-</div>
-
 </body>
 </html>

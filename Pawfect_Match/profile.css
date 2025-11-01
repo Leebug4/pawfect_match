@@ -1,0 +1,233 @@
+/* General Reset and Font */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    background: url('backgrounds/8.png') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #3C4B5B;
+    color: white;
+}
+
+
+/* Header */
+
+header {
+    background-color: #3C4B5B;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 20px 60px;
+}
+
+
+/* Header Container with Logo + Nav */
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    width: 100%;
+}
+
+
+/* Logo */
+
+.header-logo {
+    height: 100px;
+    width: auto;
+    transform: scale(4);
+    padding-top: 14px;
+    transform-origin: left center;
+}
+
+
+/* Navigation Layout */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 100px;
+    /* adds more spacing between elements */
+    margin-right: 80px;
+    /* moves everything slightly left */
+}
+
+
+/* Middle Links (Home–About Us) */
+
+nav .nav-links {
+    display: flex;
+    gap: 100px;
+    /* controls spacing between Home, Adopt, etc. */
+}
+
+
+/* Navigation Links */
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #F27C32;
+}
+
+
+/* Buttons */
+
+.profile-btn,
+.logout-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profile-btn:hover {
+    background-color: #c56441;
+    border-color: #c56441;
+}
+
+.logout-btn:hover {
+    background-color: #c56441;
+    border-color: #c56441;
+}
+
+
+/* Main Layout */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 70px auto;
+    gap: 60px;
+}
+
+
+/* Left Section */
+
+.agreement {
+    flex: 1.7;
+}
+
+.agreement h1 {
+    font-size: 50px;
+    font-weight: 900;
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+.agreement h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin: 40px 0 20px;
+    color: #ffffff;
+}
+
+
+/* Orange Cards */
+
+.card {
+    background: linear-gradient(135deg, #c56441, #d8764f);
+    border-radius: 28px;
+    padding: 40px 45px;
+    margin-bottom: 25px;
+    color: white;
+    line-height: 1.8;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card p {
+    margin-bottom: 1px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.card ul {
+    list-style-type: disc;
+    margin-left: 25px;
+}
+
+.card li {
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+/* Right Profile Card */
+
+.profile {
+    background: linear-gradient(135deg, #9BA78E, #A7B59A);
+    border-radius: 35px;
+    text-align: center;
+    padding: 40px 25px 55px;
+    width: 370px;
+    align-self: center;
+    margin-top: 40px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.profile img {
+    width: 260px;
+    height: 260px;
+    border-radius: 25px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.profile h3 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: white;
+}
+
+.profile p {
+    font-size: 17px;
+    font-weight: 600;
+    color: #f2f2f2;
+    line-height: 1.8;
+    padding: 0 15px;
+}
+
+
+/* Responsive Layout */
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .agreement,
+    .profile {
+        width: 90%;
+    }
+    .profile {
+        margin-top: 30px;
+    }
+    .header-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

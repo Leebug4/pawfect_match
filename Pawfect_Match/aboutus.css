@@ -1,0 +1,220 @@
+/* =====================
+   GENERAL STYLES
+===================== */
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    background: url('backgrounds/7.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+
+/* =====================
+   HEADER SECTION
+===================== */
+
+
+/* Header */
+
+header {
+    background-color: #3C4B5B;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 20px 60px;
+}
+
+
+/* Header Container with Logo + Nav */
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    width: 100%;
+}
+
+
+/* Logo */
+
+.header-logo {
+    height: 100px;
+    width: auto;
+    transform: scale(4);
+    padding-top: 14px;
+    transform-origin: left center;
+}
+
+
+/* Navigation Layout */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 100px;
+    /* adds more spacing between elements */
+    margin-right: 80px;
+    /* moves everything slightly left */
+}
+
+
+/* Middle Links (Home–About Us) */
+
+nav .nav-links {
+    display: flex;
+    gap: 100px;
+    /* controls spacing between Home, Adopt, etc. */
+}
+
+
+/* Navigation Links */
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #F27C32;
+}
+
+
+/* Buttons */
+
+.profile-btn,
+.logout-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profile-btn:hover {
+    background-color: #c56441;
+    border-color: #c56441;
+}
+
+.logout-btn:hover {
+    background-color: #c56441;
+    border-color: #c56441;
+}
+
+
+/* =====================
+   ABOUT SECTION
+===================== */
+
+.about-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 90px 100px 40px 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.about-left h1 {
+    font-size: 6em;
+    font-weight: 900;
+    margin: 0;
+    color: white;
+    white-space: nowrap;
+    /* keeps "About us" in one line */
+}
+
+.about-right p {
+    font-size: 1.4em;
+    line-height: 1.7;
+    color: white;
+    font-weight: 600;
+    text-align: justify;
+}
+
+
+/* =====================
+   TEAM SECTION
+===================== */
+
+.team-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0 80px 0;
+    gap: 60px;
+    /* space between top and bottom row */
+}
+
+
+/* Top row (5 members) */
+
+.top-team {
+    display: grid;
+    grid-template-columns: repeat(5, 200px);
+    gap: 60px;
+    justify-content: center;
+}
+
+
+/* Bottom row (4 members) */
+
+.bottom-team {
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    gap: 60px;
+    justify-content: center;
+}
+
+
+/* =====================
+   CARD STYLES
+===================== */
+
+.card {
+    background: linear-gradient(135deg, #949b79, #676d51);
+    border-radius: 40px;
+    text-align: center;
+    width: 200px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 190px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.card h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+
+.card p {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #f0f0f0;
+    line-height: 1;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8);
+}
