@@ -113,8 +113,7 @@ $imagePath = resolve_pet_image($pet['id']);
           <button type="submit">Confirm Adopt</button>
         </p>
       </form>
-
-      <p><a href="guest.php">Back to categories</a></p>
+      <a href="guest.php"><button>Back to categories</button></a>
     </td>
   </tr>
 </table>

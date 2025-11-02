@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <button type="submit">Save Pet</button>
 </form>
 
-<p><a href="admin.php">Back to Admin Panel</a></p>
+<a href="admin.php"><button>Back to Admin Panel</button></a>
 
 </body>
 </html>

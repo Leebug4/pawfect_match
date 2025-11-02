@@ -14,6 +14,20 @@ if (empty($_SESSION['is_guest'])) {
 $valid_types = ['Dog', 'Cat', 'Hamster', 'Rabbit'];
 function esc($s){ return htmlspecialchars($s, ENT_QUOTES); }
 
+$search_msg = '';
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['search'])) {
+    $search = trim($_GET['search']);
+    if ($search === '') {
+        $search_msg = "Please enter a pet type.";
+    } elseif (!in_array(ucfirst(strtolower($search)), $valid_types)) {
+        $search_msg = "Invalid input — no pets shown.";
+    } else {
+        header("Location: category.php?type=" . ucfirst(strtolower($search)));
+        exit;
+    }
+}
+
+
 $cats = [
     'Dog' => 'backgrounds/DOG.png',
     'Cat' => 'backgrounds/CAT.png',
@@ -45,7 +59,14 @@ $cats = [
         <button class="profile-btn">Profile</button>
       </a>
     </nav>
+  <form method="get" action="" class="search-bar">
+    <input type="text" id="search" name="search" placeholder="Search pets...">
+    <button type="submit">🔍</button>
+  </form>
   </div>
+    <?php if ($search_msg): ?>
+    <p style="color:red;"><?php echo esc($search_msg); ?></p>
+    <?php endif; ?>
 </header>
 
 <div class="category-container">

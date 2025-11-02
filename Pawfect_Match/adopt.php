@@ -69,6 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <p><strong>Status:</strong> Adopted ✅</p>
 <?php endif; ?>
 
-<p><a href="guest.php">Back to Categories</a></p>
+<a href="guest.php"><button>Back to Categories</button></a>
 </body>
 </html>

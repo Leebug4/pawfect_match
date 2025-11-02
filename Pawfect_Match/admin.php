@@ -45,7 +45,6 @@ function get_pet_images($conn, $pet_id) {
 <body>
   <h1>Admin Dashboard</h1>
   <p>
-    <a href="index.php"><button type="button">Home</button></a>
     <a href="add_pet.php"><button type="button">+ Add New Pet</button></a>
     <a href="adminprofile.php"><button type="button">Profile</button></a>    
     <a href="logout.php"><button type="button">Logout</button></a>
@@ -68,7 +67,7 @@ function get_pet_images($conn, $pet_id) {
       <th>Description</th>
       <th>Actions</th>
     </tr>
-
+    
     <?php if ($petsRes && $petsRes->num_rows > 0): ?>
       <?php while ($pet = $petsRes->fetch_assoc()): ?>
         <tr>
@@ -84,7 +83,6 @@ function get_pet_images($conn, $pet_id) {
                       $web = '';
                       if (is_file($path1)) $web = 'uploads/' . rawurlencode($fn);
                       elseif (is_file($path2)) $web = 'animals/' . rawurlencode($fn);
-
                       echo '<div style="display:inline-block;margin:6px;text-align:center;">';
                       if ($web) {
                           echo '<img src="'.esc($web).'" width="100" alt="">';
@@ -110,18 +108,17 @@ function get_pet_images($conn, $pet_id) {
               </form>
             </div>
           </td>
-
           <td><?php echo esc($pet['name']); ?></td>
           <td><?php echo esc($pet['species']); ?></td>
           <td><?php echo esc($pet['breed']); ?></td>
           <td><?php echo esc($pet['gender']); ?></td>
           <td><?php echo esc($pet['age']); ?></td>
           <td><?php echo esc($pet['status']); ?></td>
-          <td><?php echo nl2br(esc($pet['description'])); ?></td>
-
+          <td><?php echo nl2br(esc($pet['description'])); ?>
+        </td>
           <td>
-            <a href="edit_pet.php?id=<?php echo urlencode($pet['id']); ?>">Edit</a>
-            <form method="post" action="delete_pet.php" style="display:inline" 
+            <button type="button" onclick="window.location.href='edit_pet.php?id=<?php echo urlencode($pet['id']); ?>'">Edit</button>
+            <form method="post" action="delete_pet.php" style="display:inline"
                   onsubmit="return confirm('Are you sure you want to delete <?php echo esc($pet['name']); ?>?');">
               <input type="hidden" name="id" value="<?php echo esc($pet['id']); ?>">
               <button type="submit">Delete</button>
@@ -133,6 +130,5 @@ function get_pet_images($conn, $pet_id) {
       <tr><td colspan="10">No pets found.</td></tr>
     <?php endif; ?>
   </table>
-
 </body>
 </html>

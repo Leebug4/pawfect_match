@@ -12,17 +12,8 @@
     <img src="backgrounds/logo.png" alt="Pawfect Match Logo" class="header-logo">
     <nav>
       <div class="nav-links">
-        <a href="guest.php">Home</a>
-        <a href="adopt.php">Adopt</a>
-        <a href="donation.php">Donation</a>
-        <a href="aboutUs.php">About Us</a>
+          <a onclick ="history.back()">Back to the prevous tab</a>
       </div>
-      <a href="profile.php" class="active">
-        <button class="profile-btn">Profile</button>
-      </a>
-      <a href="logout.php">
-        <button class="logout-btn">Logout</button>
-      </a>
     </nav>
   </div>
 </header>

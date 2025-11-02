@@ -1,0 +1,226 @@
+/* General Reset and Font */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    background: url('backgrounds/9.png') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #3C4B5B;
+    color: white;
+}
+
+
+/* Header */
+
+header {
+    background-color: #3C4B5B;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 20px 60px;
+}
+
+
+/* Header Container with Logo + Nav */
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    width: 100%;
+}
+
+
+/* Logo */
+
+.header-logo {
+    height: 100px;
+    width: auto;
+    transform: scale(4);
+    padding-top: 14px;
+    transform-origin: left center;
+}
+
+
+/* Navigation Layout */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 100px;
+    /* adds more spacing between elements */
+    margin-right: 80px;
+    /* moves everything slightly left */
+}
+
+
+/* Middle Links (Home–About Us) */
+
+nav .nav-links {
+    display: flex;
+    gap: 100px;
+    /* controls spacing between Home, Adopt, etc. */
+}
+
+
+/* Navigation Links */
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #F27C32;
+}
+
+
+/* Buttons */
+
+.profile-btn,
+.logout-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profile-btn:hover {
+    background-color: #c56441;
+    border-color: #c56441;
+}
+
+.logout-btn:hover {
+    background-color: #c56441;
+    border-color: #c56441;
+}
+
+
+/* --- MAIN INTERFACE SECTION --- */
+
+.interface-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 60px auto;
+    gap: 40px;
+    padding: 0 30px;
+}
+
+
+/* --- LEFT INFO BOX --- */
+
+.update-box {
+    flex: 2;
+    background-color: #9BA78E;
+    color: #ffffff;
+    border-radius: 25px;
+    padding: 35px 45px;
+    font-size: 18px;
+    line-height: 1.7;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+
+.update-box h2 {
+    font-size: 22px;
+    color: #fff;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.update-box p {
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+
+/* --- RIGHT SIDE CARD (IMAGE BOX) --- */
+
+.side-card {
+    flex: 1;
+    background-color: #D96D3B;
+    border-radius: 25px;
+    text-align: center;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.side-card img {
+    width: 100%;
+    height: 250px;
+    border-radius: 20px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.side-card h3 {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+
+/* ===== DONATION BANNER ===== */
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    /* matches the top section width */
+    margin: 50px auto 100px auto;
+    padding: 0 30px;
+    /* same side padding as interface-container */
+}
+
+.banner a {
+    display: block;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.banner a:hover {
+    transform: scale(1.02);
+    /* smaller scale for smoother look */
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+
+/* Responsive fix for smaller screens */
+
+@media (max-width: 900px) {
+    .banner {
+        padding: 0 15px;
+        margin: 40px auto 80px auto;
+    }
+    .banner img {
+        border-radius: 14px;
+    }
+}

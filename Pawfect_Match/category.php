@@ -55,7 +55,7 @@ $res = $stmt->get_result();
 <head><meta charset="utf-8"><title><?php echo esc($species); ?> - Pawfect Match</title></head>
 <body>
 <h1><?php echo esc($species); ?> for Adoption</h1>
-<p><a href="guest.php">Back to categories</a></p>
+<a href="guest.php"><button>Back to categories</button></a>
 
 <?php if ($msg) echo '<p style="color:green">'.esc($msg).'</p>'; ?>
 
